@@ -3,7 +3,11 @@
 import { mkdirSync, writeFileSync } from "node:fs";
 
 const story =
-  "The night nurse assured me my father, deep in dementia, had slept soundly through the whole night. This morning, his fitness tracker showed 11,000 steps.";
+  "The cadaver dog kept returning to the same spot on the lake, whining at the empty water. He has never once been wrong.";
+
+if ([...story].length > 400) {
+  throw new Error(`story too long: ${[...story].length} chars`);
+}
 
 mkdirSync("/output", { recursive: true });
 writeFileSync("/output/entry.txt", story + "\n", "utf8");
